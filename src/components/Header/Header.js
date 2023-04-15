@@ -17,17 +17,10 @@ const Header = () => {
     <header className="header">
       <div className="banner">
         <NavLink to="/" className="banner__logo">
-          <img
-            className="banner__logo-img"
-            src={logoHeader}
-            alt="header-banner"
-          />
+          <img className="banner__logo-img" src={logoHeader} alt="header-banner" />
         </NavLink>
         <div className="header__lang">
-          <LanguageToggle
-            className="header__lang-btn"
-            onLanguageChange={handleLanguageChange}
-          />
+          <LanguageToggle className="header__lang-btn" onLanguageChange={handleLanguageChange} />
         </div>
       </div>
       <div className="banner__nav">

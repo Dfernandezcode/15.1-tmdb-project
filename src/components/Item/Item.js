@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Item.scss";
 
 const Item = ({ item }) => {
-  //Percentage conversion
+  // Percentage conversion
   const percentage = (item.vote_average * 10).toFixed(0);
 
-  //Colors depending on percentage:
+  // Colors depending on percentage:
   const getColorClass = () => {
     if (percentage >= 70) {
       return "fresh";
@@ -17,18 +17,14 @@ const Item = ({ item }) => {
     }
   };
 
-  //Ternary (if contains .title print movie if not print TV)
+  // Ternary (if contains .title print movie if not print TV)
   const type = item.title ? "movie" : "tv";
 
   return (
     <div className="item">
       <Link className="item__link" to={`/items/${item?.id}/${type}`}>
         {/* Wrap the image and title with Link */}
-        <img
-          className="item__poster"
-          src={`https://image.tmdb.org/t/p/w440_and_h660_face/${item?.poster_path}`}
-          alt={item.title}
-        ></img>
+        <img className="item__poster" src={`https://image.tmdb.org/t/p/w440_and_h660_face/${item?.poster_path}`} alt={item.title}></img>
         <p className={`item__rating--${getColorClass()}`}>
           {percentage}
           <span className="item__percentage">%</span>

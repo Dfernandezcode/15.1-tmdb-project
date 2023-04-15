@@ -16,7 +16,7 @@
   }
 
   &__film-icon {
-    font-size: 250px;
+    font-size: 225px;
   }
 
   &__detail--title {
@@ -69,6 +69,7 @@
   }
   &__button {
     margin: 10px;
+    height: 35px;
   }
 
   &__solve {
@@ -79,6 +80,8 @@
 
   &__solve-btn {
     margin: 0 10px;
+    height: 30px;
+    width: 100px;
   }
   &__box-1 {
     display: flex;

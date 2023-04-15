@@ -41,14 +41,12 @@
     }
 
     &-genre {
-      margin: 0;
       display: flex;
+      gap: 0 5px;
     }
   }
 
   /*Rating*/
-  &__rating {
-  }
 
   /*Tagline*/
   &__tagline {

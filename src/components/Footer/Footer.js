@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <NavLink to="/">
-        <img className="footer__logo-img" src={logoFooter} />
+        <img className="footer__logo-img" src={logoFooter} alt="footer" />
       </NavLink>
     </footer>
   );
