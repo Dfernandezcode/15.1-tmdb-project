@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header.js";
 import Footer from "../../components/Footer/Footer.js";
@@ -8,7 +8,7 @@ import MediaInfo from "./MediaInfo/MediaInfo.js";
 import Recommend from "./Recommend/Recommend.js";
 
 const ItemDetail = () => {
-  //API
+  // API
   const { id } = useParams();
   const { type } = useParams();
   const API_URL_DETAIL = `${process.env.REACT_APP_API_URL}/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}`;
