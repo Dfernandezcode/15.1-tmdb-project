@@ -10,13 +10,12 @@ const WatchFree = () => {
   const API_URL_WATCHFREE = `${process.env.REACT_APP_API_URL}/discover/${toggleMedia}?sort_by=release_date.desc&language=es-ES&page=1&vote_count.gte=1000&vote_average.gte=5&watch_region=ES&with_watch_monetization_types=free&api_key=${process.env.REACT_APP_API_KEY}`;
   const [freeMedia] = useFetch(API_URL_WATCHFREE);
 
-  //SHOW MORE FUNCTIONALITY
+  // SHOW MORE FUNCTIONALITY
   const NUM_ITEMS_PER_PAGE = 4;
 
   const [numMoviesToShow, setNumMoviesToShow] = useState(NUM_ITEMS_PER_PAGE);
   const freeMovies = freeMedia?.results?.slice(0, numMoviesToShow) || [];
-  const showMoreMovies = () =>
-    setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
+  const showMoreMovies = () => setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
 
   return (
     <div className="component-wrapper">
@@ -26,16 +25,10 @@ const WatchFree = () => {
             <FormattedMessage id="movies:watch-free" />
           </h2>
           <div>
-            <button
-              className="component__btn-time button-dark"
-              onClick={() => setToggleMedia("movie")}
-            >
+            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("movie")}>
               <FormattedMessage id="movies:toggle-movie" />
             </button>
-            <button
-              className="component__btn-time button-dark"
-              onClick={() => setToggleMedia("tv")}
-            >
+            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("tv")}>
               <FormattedMessage id="movies:toggle-tv" />
             </button>
           </div>

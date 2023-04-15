@@ -9,13 +9,12 @@ const Popular = () => {
   const API_URL_POPULAR = `${process.env.REACT_APP_API_URL}/${toggleMedia}/popular?api_key=${process.env.REACT_APP_API_KEY}`;
   const [popularMedia] = useFetch(API_URL_POPULAR);
 
-  //SHOW MORE FUNCTIONALITY
+  // SHOW MORE FUNCTIONALITY
   const NUM_ITEMS_PER_PAGE = 4;
 
   const [numMoviesToShow, setNumMoviesToShow] = useState(NUM_ITEMS_PER_PAGE);
   const popularMovies = popularMedia?.results?.slice(0, numMoviesToShow) || [];
-  const showMoreMovies = () =>
-    setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
+  const showMoreMovies = () => setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
 
   return (
     <div className="component-wrapper">
@@ -25,16 +24,10 @@ const Popular = () => {
             <FormattedMessage id="movies:most-popular" />
           </h2>
           <div className="component__buttons">
-            <button
-              className="component__btn-time button-dark"
-              onClick={() => setToggleMedia("movie")}
-            >
+            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("movie")}>
               <FormattedMessage id="movies:toggle-movie" />
             </button>
-            <button
-              className="component__btn-time button-dark"
-              onClick={() => setToggleMedia("tv")}
-            >
+            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("tv")}>
               <FormattedMessage id="movies:toggle-tv" />
             </button>
           </div>
