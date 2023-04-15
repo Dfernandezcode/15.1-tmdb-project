@@ -22,7 +22,7 @@
   }
 }
 
-// UTILIDADES
+// UTILITIES
 .mobile-only {
   @include for-tablet-portrait-up {
     display: none !important;

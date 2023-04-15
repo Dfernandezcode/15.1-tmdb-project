@@ -1,5 +1,5 @@
 import { FormattedMessage } from "react-intl";
-//Page Component Imports
+// Page Component Imports
 import Header from "../../components/Header/Header.js";
 import Footer from "../../components/Footer/Footer.js";
 import "./MoviesPage.scss";
@@ -28,7 +28,7 @@ const MoviesPage = () => {
         <LatestRelease />
         <Popular />
 
-        {/*BANNER*/}
+        {/* BANNER */}
         <div className="movie-page__subscribe">
           <div className="subscribe-banner">
             <h2 className="subscribe-banner__title">

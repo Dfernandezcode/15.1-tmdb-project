@@ -18,15 +18,14 @@
 
     &__subscribe {
       display: flex;
-      align-items: flex-start;
       justify-content: center;
       align-content: center;
       height: fit-content;
       padding: 25px 0;
       background-image: url("../../assets/Subscribe-bg.png");
-      background-position: right;
+      background-color: $backgroud-generic;
+      background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
     }
   }
 
