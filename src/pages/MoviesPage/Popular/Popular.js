@@ -9,8 +9,6 @@ const Popular = () => {
   const API_URL_POPULAR = `${process.env.REACT_APP_API_URL}/${toggleMedia}/popular?api_key=${process.env.REACT_APP_API_KEY}`;
   const [popularMedia] = useFetch(API_URL_POPULAR);
 
-  console.log(popularMedia);
-
   //SHOW MORE FUNCTIONALITY
   const NUM_ITEMS_PER_PAGE = 4;
 
