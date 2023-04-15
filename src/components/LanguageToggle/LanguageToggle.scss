@@ -1,5 +1,5 @@
-@import "../styles/variables.scss";
-@import "../styles/buttons.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/buttons.scss";
 
 .language-toggle {
   display: flex;
@@ -16,7 +16,7 @@
     background-color: transparent;
   }
 
-  &__button:hover {
+  &__button--selected {
     background-color: $background-light;
     color: $font-color-generic;
   }

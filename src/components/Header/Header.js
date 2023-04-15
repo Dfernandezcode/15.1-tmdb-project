@@ -4,7 +4,7 @@ import logoHeader from "../../assets/Logo_TMDB.svg";
 import { LanguageSelector } from "../../App";
 import { useContext } from "react";
 import { FormattedMessage } from "react-intl";
-import LanguageToggle from "../../utils/LanguageToggle";
+import LanguageToggle from "../../components/LanguageToggle/LanguageToggle.js";
 
 const Header = () => {
   const { setLanguage } = useContext(LanguageSelector);
