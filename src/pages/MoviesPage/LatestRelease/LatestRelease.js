@@ -11,14 +11,12 @@ const LatestRelease = () => {
 
   console.log(discoverMedia);
 
-  //SHOW MORE FUNCTIONALITY
+  // SHOW MORE FUNCTIONALITY
   const NUM_ITEMS_PER_PAGE = 4;
 
   const [numMoviesToShow, setNumMoviesToShow] = useState(NUM_ITEMS_PER_PAGE);
-  const discoverMovies =
-    discoverMedia?.results?.slice(0, numMoviesToShow) || [];
-  const showMoreMovies = () =>
-    setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
+  const discoverMovies = discoverMedia?.results?.slice(0, numMoviesToShow) || [];
+  const showMoreMovies = () => setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
 
   return (
     <div className="discover">

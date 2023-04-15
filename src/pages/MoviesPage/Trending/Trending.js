@@ -2,7 +2,7 @@ import { useState } from "react";
 import Item from "../../../components/Item/Item";
 import useFetch from "../../../hooks/useFetch";
 import { FormattedMessage } from "react-intl";
-//Stylesheet imports:
+// Stylesheet imports:
 import "../../../styles/movies-components.scss";
 import "../../../styles/buttons.scss";
 
@@ -14,14 +14,12 @@ const Trending = () => {
 
   console.log(trendingMedia);
 
-  //SHOW MORE FUNCTIONALITY
+  // SHOW MORE FUNCTIONALITY
   const NUM_ITEMS_PER_PAGE = 4;
 
   const [numMoviesToShow, setNumMoviesToShow] = useState(NUM_ITEMS_PER_PAGE);
-  const trendingMovies =
-    trendingMedia?.results?.slice(0, numMoviesToShow) || [];
-  const showMoreMovies = () =>
-    setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
+  const trendingMovies = trendingMedia?.results?.slice(0, numMoviesToShow) || [];
+  const showMoreMovies = () => setNumMoviesToShow(numMoviesToShow + NUM_ITEMS_PER_PAGE);
 
   return (
     <div className="component-wrapper trending-bg">
@@ -31,16 +29,10 @@ const Trending = () => {
             <FormattedMessage id="movies:trending-title" />
           </h2>
           <div>
-            <button
-              className="component__btn-time button-dark"
-              onClick={() => setToggleMedia("day")}
-            >
+            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("day")}>
               <FormattedMessage id="movies:trending-today" />
             </button>
-            <button
-              className="component__btn-time button-dark"
-              onClick={() => setToggleMedia("week")}
-            >
+            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("week")}>
               <FormattedMessage id="movies:trending-week" />
             </button>
           </div>

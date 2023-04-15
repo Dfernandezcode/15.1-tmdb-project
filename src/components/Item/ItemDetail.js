@@ -8,7 +8,6 @@ import MediaInfo from "./MediaInfo/MediaInfo.js";
 import Recommend from "./Recommend/Recommend.js";
 
 const ItemDetail = () => {
-  // API
   const { id } = useParams();
   const { type } = useParams();
   const API_URL_DETAIL = `${process.env.REACT_APP_API_URL}/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}`;
