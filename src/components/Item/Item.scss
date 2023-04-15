@@ -1,0 +1,97 @@
+@import "../../styles/variables.scss";
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  margin: 40px 20px 0 0;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  &__poster {
+    width: 140px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  &__name {
+    font-size: 16px;
+    margin: 0;
+    text-decoration: none;
+    color: $font-color-dark;
+  }
+
+  &__rating--fresh {
+    position: absolute;
+    top: 185px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: solid 2px $fresh;
+    outline: 2px solid $backgroud-generic;
+    color: $font-color-light;
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    background-color: $backgroud-generic;
+    font-size: 12px;
+    font-weight: $bold;
+  }
+
+  &__rating--ok {
+    position: absolute;
+    top: 185px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: solid 2px $ok;
+    outline: 2px solid $backgroud-generic;
+    color: $font-color-light;
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    background-color: $backgroud-generic;
+    font-size: 12px;
+    font-weight: $bold;
+  }
+
+  &__rating--rotten {
+    position: absolute;
+    top: 185px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: solid 2px $rotten;
+    outline: 2px solid $backgroud-generic;
+    color: $font-color-light;
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    background-color: $backgroud-generic;
+    font-size: 12px;
+    font-weight: $bold;
+  }
+
+  &__percentage {
+    font-size: 8px;
+    font-weight: $light;
+  }
+
+  &__release {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.info-text {
+  margin: 0;
+  color: $font-color-dark;
+}

@@ -1,0 +1,47 @@
+@import "../../../styles/variables.scss";
+
+.recom-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recom-info {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  color: $font-color-dark;
+
+  &__title {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    justify-self: start;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+
+    &-element {
+      display: flex;
+      flex-direction: column;
+      width: 320px;
+
+      &-img {
+        width: 320px;
+        border-radius: 10px;
+      }
+
+      &-box {
+        display: flex;
+        justify-content: space-between;
+
+        &-text {
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

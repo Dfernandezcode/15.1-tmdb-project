@@ -1,0 +1,13 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $backgroud-generic;
+  height: 210px;
+
+  &__logo-img {
+    height: 120px;
+  }
+}

@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.header {
+  padding: 25px 15px 0 15px;
+  height: 115px;
+  background-color: $backgroud-generic;
+}
+
+/*Banner with welcome text*/
+.banner {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  &__logo-img {
+    height: 21px;
+  }
+
+  &__nav {
+    display: flex;
+
+    &-link {
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: $font-color-light;
+      margin-right: 50px;
+    }
+
+    &-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      cursor: pointer;
+    }
+  }
+}

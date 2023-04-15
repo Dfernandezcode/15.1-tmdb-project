@@ -1,0 +1,100 @@
+@import "../../styles/media-queries.scss";
+@import "../../styles/variables.scss";
+
+.game-page {
+  &__detail {
+    background-color: $backgroud-generic;
+    color: $font-color-light;
+    margin: 0;
+    padding: 20px;
+    @include for-tablet-portrait-up {
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      justify-content: center;
+    }
+  }
+
+  &__film-icon {
+    font-size: 250px;
+  }
+
+  &__detail--title {
+    padding: 15px 0px;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    color: $font-color-light;
+    @include for-tablet-portrait-up {
+      padding: 15px 0px;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+  &__title {
+    padding: 15px 0px;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    color: $font-color-light;
+  }
+  &__option-title {
+    padding: 15px;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    color: $font-color-dark;
+  }
+  &__img {
+    border-radius: 10px;
+    width: 250px;
+  }
+  &__options--container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  &__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include for-tablet-portrait-up {
+      margin: 5px 30px;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__button {
+    margin: 10px;
+  }
+
+  &__solve {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  &__solve-btn {
+    margin: 0 10px;
+  }
+  &__box-1 {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+  &__box-2 {
+    padding: 0px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include for-tablet-portrait-up {
+      margin-left: 20px;
+    }
+  }
+}
