@@ -10,8 +10,6 @@ const WatchFree = () => {
   const API_URL_WATCHFREE = `${process.env.REACT_APP_API_URL}/discover/${toggleMedia}?sort_by=release_date.desc&language=es-ES&page=1&vote_count.gte=1000&vote_average.gte=5&watch_region=ES&with_watch_monetization_types=free&api_key=${process.env.REACT_APP_API_KEY}`;
   const [freeMedia] = useFetch(API_URL_WATCHFREE);
 
-  console.log(freeMedia);
-
   //SHOW MORE FUNCTIONALITY
   const NUM_ITEMS_PER_PAGE = 4;
 
