@@ -3,6 +3,7 @@ import Item from "../../../components/Item/Item";
 import useFetch from "../../../hooks/useFetch";
 import { FormattedMessage } from "react-intl";
 import "../../../styles/movies-components.scss";
+import MovieButtons from "../../../components/MovieButtons/MovieButtons";
 
 const WatchFree = () => {
   const [toggleMedia, setToggleMedia] = useState("movie");
@@ -25,12 +26,7 @@ const WatchFree = () => {
             <FormattedMessage id="movies:watch-free" />
           </h2>
           <div>
-            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("movie")}>
-              <FormattedMessage id="movies:toggle-movie" />
-            </button>
-            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("tv")}>
-              <FormattedMessage id="movies:toggle-tv" />
-            </button>
+            <MovieButtons onToggleMedia={setToggleMedia} movieText={<FormattedMessage id="movies:toggle-movie" />} tvText={<FormattedMessage id="movies:toggle-tv" />} />
           </div>
         </div>
         <div className="component__media">

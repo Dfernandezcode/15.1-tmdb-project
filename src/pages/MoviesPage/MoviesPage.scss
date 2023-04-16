@@ -9,11 +9,11 @@
     align-content: center;
     height: 365px;
     background-image: url("../../assets/Header_bg.jpg");
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
-    background-size: cover;
     @include for-tablet-portrait-up {
       background-size: cover;
+      background-position: center;
     }
 
     &__subscribe {

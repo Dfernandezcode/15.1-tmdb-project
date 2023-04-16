@@ -3,6 +3,10 @@ import Item from "../../../components/Item/Item";
 import useFetch from "../../../hooks/useFetch";
 import { FormattedMessage } from "react-intl";
 import "../../../styles/movies-components.scss";
+// UTILS IMPORT
+import MovieButtons from "../../../components/MovieButtons/MovieButtons";
+
+// FUNCTIONS AND CODE
 
 const Popular = () => {
   const [toggleMedia, setToggleMedia] = useState("movie");
@@ -23,14 +27,7 @@ const Popular = () => {
           <h2 className="component__nav-title">
             <FormattedMessage id="movies:most-popular" />
           </h2>
-          <div className="component__buttons">
-            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("movie")}>
-              <FormattedMessage id="movies:toggle-movie" />
-            </button>
-            <button className="component__btn-time button-dark" onClick={() => setToggleMedia("tv")}>
-              <FormattedMessage id="movies:toggle-tv" />
-            </button>
-          </div>
+          <MovieButtons onToggleMedia={setToggleMedia} movieText={<FormattedMessage id="movies:toggle-movie" />} tvText={<FormattedMessage id="movies:toggle-tv" />} />
         </div>
         <div className="component__media">
           {popularMovies.map((item) => (

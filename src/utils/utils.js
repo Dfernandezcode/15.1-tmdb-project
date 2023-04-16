@@ -1,3 +1,14 @@
+// Random Generator
+export const generateRandom = (min = 0, max = 100) => {
+  const difference = max - min;
+  let rand = Math.random();
+  rand = Math.floor(rand * difference);
+  rand = rand + min;
+  return rand;
+};
+
+// Convert decimal to percentage.
+
 export const roundedToFixed = (float = 0, divider = 1, digits = 1) => {
   const numberToFix = float / divider;
   const rounder = Math.pow(10, digits);
@@ -21,14 +32,6 @@ export const generateColor = (value) => {
   return color;
 };
 
-export const generateRandom = (min = 0, max = 100) => {
-  const difference = max - min;
-  let rand = Math.random();
-  rand = Math.floor(rand * difference);
-  rand = rand + min;
-  return rand;
-};
-
 export const formatTime = (minutes) => {
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
@@ -38,20 +41,7 @@ export const formatTime = (minutes) => {
 
 export const formatDate = (date) => {
   if (date !== undefined) {
-    const months = [
-      "ene",
-      "feb",
-      "mar",
-      "abr",
-      "may",
-      "jun",
-      "jul",
-      "ago",
-      "sep",
-      "oct",
-      "nov",
-      "dic",
-    ];
+    const months = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
     const [year, month, day] = date.split("-");
     const monthAbreviado = months[parseInt(month) - 1];
     return `${day} ${monthAbreviado} ${year}`;
