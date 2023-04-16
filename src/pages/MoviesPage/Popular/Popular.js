@@ -4,10 +4,7 @@ import useFetch from "../../../hooks/useFetch";
 import { FormattedMessage } from "react-intl";
 import "../../../styles/movies-components.scss";
 // UTILS IMPORT
-import MovieButtons from "../../../components/MovieButtons/MovieButtons";
-
-// FUNCTIONS AND CODE
-
+import MovieButtons from "../../../components/MoviesButtons/MovieButtons";
 const Popular = () => {
   const [toggleMedia, setToggleMedia] = useState("movie");
   const API_URL_POPULAR = `${process.env.REACT_APP_API_URL}/${toggleMedia}/popular?api_key=${process.env.REACT_APP_API_KEY}`;
