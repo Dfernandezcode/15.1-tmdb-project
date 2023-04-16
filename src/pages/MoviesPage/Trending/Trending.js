@@ -2,7 +2,7 @@ import { useState } from "react";
 import Item from "../../../components/Item/Item";
 import useFetch from "../../../hooks/useFetch";
 import { FormattedMessage } from "react-intl";
-import TimeButtons from "../../../components/MoviesButtons/TimeButtons";
+import TimeButtons from "../../../components/MovieButtons/TimeButtons";
 // Stylesheet imports:
 import "../../../styles/movies-components.scss";
 import "../../../styles/buttons.scss";
