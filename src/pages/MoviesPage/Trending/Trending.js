@@ -2,7 +2,6 @@ import { useState } from "react";
 import Item from "../../../components/Item/Item";
 import useFetch from "../../../hooks/useFetch";
 import { FormattedMessage } from "react-intl";
-// UTILS IMPORT
 import TimeButtons from "../../../components/MoviesButtons/TimeButtons";
 // Stylesheet imports:
 import "../../../styles/movies-components.scss";
