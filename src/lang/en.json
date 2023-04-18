@@ -13,6 +13,7 @@
   "movies:toggle-movie": "Movies",
   "movies:toggle-tv": "Television",
   "movies:more": "+ MORE",
+  "movies:less": "- LESS",
   "movies:subscribe-title": "Join today.",
   "movies:subscribe-text": "Get access to maintain your own custom personal lists, track what you've seen and search and filter for what to watch next—regardless if it's in theatres, on TV or available on popular streaming services like Netflix, Amazon Prime Video, Disney Plus, fuboTV y Apple TV Plus.",
   "movie-detail:synopsis": "Overview",
