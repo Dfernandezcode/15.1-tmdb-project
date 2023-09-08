@@ -1,14 +1,10 @@
-import "./Footer.scss";
-import { NavLink } from "react-router-dom";
-import logoFooter from "../../assets/Logo_TMDB-Stacked.svg";
-
+import './Footer.scss';
+import LogoFooter from '../../assets/logo-footer.png';
 const Footer = () => {
   return (
-    <footer className="footer">
-      <NavLink to="/">
-        <img className="footer__logo-img" src={logoFooter} alt="footer" />
-      </NavLink>
-    </footer>
+    <div className='footer' onClick={() => window.scroll(0, 0)}>
+      <img className='footer__img' src={LogoFooter}></img>
+    </div>
   );
 };
 

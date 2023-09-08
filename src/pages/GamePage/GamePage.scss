@@ -1,103 +1,124 @@
 @import "../../styles/media-queries.scss";
-@import "../../styles/variables.scss";
 
 .game-page {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  &__content {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding-top: 0;
+    margin-top: -135px;
+    position: relative;
+    z-index: 10;
+  }
   &__detail {
-    background-color: $backgroud-generic;
-    color: $font-color-light;
-    margin: 0;
-    padding: 20px;
-    @include for-tablet-portrait-up {
-      display: flex;
-      flex-direction: row;
-      align-items: start;
-      justify-content: center;
-    }
-  }
-
-  &__film-icon {
-    font-size: 225px;
-  }
-
-  &__detail--title {
-    padding: 15px 0px;
-    margin: 0px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $font-color-light;
-    @include for-tablet-portrait-up {
-      padding: 15px 0px;
-      font-weight: 700;
-      font-size: 24px;
-    }
-  }
-  &__title {
-    padding: 15px 0px;
-    margin: 0px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $font-color-light;
-  }
-  &__option-title {
-    padding: 15px;
-    margin: 0px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $font-color-dark;
-  }
-  &__img {
-    border-radius: 10px;
-    width: 250px;
-  }
-  &__options--container {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #052641;
+    color: #fff;
+    width: 100%;
+    position: relative;
+    top: -3px;
+    @include for-tablet-portrait-up {
+      flex-flow: row nowrap;
+      padding: 30px 0;
+    }
+  }
+  &__data{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px auto;
+    padding: 30px;
+    @include for-tablet-portrait-up {
+      width: 50%;
+    }
+  }
+  &__title{
+    font-size: 20px;
+    font-weight: bold;
+    @include for-tablet-portrait-up {
+      font-size: 28px;
+    }
+  }
+  &__subtitle{
+    font-size: 12px;
+    font-weight: 200;
+    @include for-tablet-portrait-up {
+      font-size: 14px;
+    }
+  }
+  &__sinopsis-title{
+    margin: 20px 0 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    @include for-tablet-portrait-up {
+      font-size: 18px;
+    }
+  }
+  &__sinopsis{
+    font-size: 12px;
+    font-weight: 200;
+    @include for-tablet-portrait-up {
+      font-size: 14px;
+    }
   }
   &__options {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 30px;
     @include for-tablet-portrait-up {
-      margin: 5px 30px;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      align-items: center;
-      justify-content: center;
+      width: 560px;
+      flex-flow: row wrap;
+      align-items: stretch;
+      padding: 10px 0;
+      justify-content: space-between;
+    }
+  }
+  &__options-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px auto;
+    color: #2D2D2D;
+    @include for-tablet-portrait-up {
+      font-size: 28px;
     }
   }
   &__button {
-    margin: 10px;
-    height: 35px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
   }
-
   &__solve {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
   }
-
   &__solve-btn {
     margin: 0 10px;
-    height: 30px;
-    width: 100px;
   }
-  &__box-1 {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
+  &__img{
+    width: 265px;
+    margin: 20px auto;
+    border-radius: 10px;
+    &--hide{
+      filter: brightness(0%) opacity(40%);
+      width: 265px;
+      border-radius: 10px;
+    }
   }
-  &__box-2 {
-    padding: 0px 10px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    @include for-tablet-portrait-up {
-      margin-left: 20px;
+  &__icon{
+    position: relative;
+    top: 258px;
+    left: 1px;
+    font-size: 100px; @include for-tablet-portrait-up {
+      top: -8px;
+      left: 180px;
     }
   }
 }

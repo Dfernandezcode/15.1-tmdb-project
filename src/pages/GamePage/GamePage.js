@@ -1,127 +1,127 @@
-import "./GamePage.scss";
-
-import { generateRandom, formatDate, formatGenres, formatTime } from "../../utils/utils";
-import { useEffect, useState, useContext } from "react";
-import Footer from "../../components/Footer/Footer";
-import { FormattedMessage } from "react-intl";
-import { BsFillQuestionSquareFill } from "react-icons/bs";
-import useFetch from "../../hooks/useFetch";
-import { LanguageSelector } from "../../App";
-import Header from "../../components/Header/Header";
+import React from 'react';
+import './GamePage.scss';
+import { generateRandom, generateRandomIndex, formatDateWithBarrs, formatGenres, formatTime, getProductionCountriesName } from '../../utils/utils';
+import { ImFilm } from 'react-icons/im';
+import { LanguageSelector } from '../../App';
+import { FormattedMessage } from 'react-intl';
 
 const GamePage = () => {
-  // STATES
-  const { language } = useContext(LanguageSelector);
-  const [nameSelected, setNameSelected] = useState();
-  const [gameIsSolved, setGameIsSolved] = useState(false);
-  const [page, setPage] = useState(generateRandom(0, 100));
-  const [currentFilm, setCurrentFilm] = useState();
-  const [options, setOptions] = useState([]);
+  const { language } = React.useContext(LanguageSelector);
 
-  // FILM URL API REQUEST
-  // `${process.env.REACT_APP_API_URL}/${toggleMedia}/popular?api_key=${process.env.REACT_APP_API_KEY}`;
-  const FILM_URL = process.env.REACT_APP_API_URL + "/movie/top_rated?language=" + language + page + "&api_key=" + process.env.REACT_APP_API_KEY;
+  const [nameSelected, setNameSelected] = React.useState();
+  const [gameIsSolved, setGameIsSolved] = React.useState(false);
+  const [currentFilm, setCurrentFilm] = React.useState();
+  const [page, setPage] = React.useState(generateRandom(0, 100));
+  const [options, setOptions] = React.useState([]);
 
-  const [currentFilmInfo] = useFetch(
-    `${process.env.REACT_APP_API_URL} +
-      /movie/
-      ${currentFilm?.id}
-      ?api_key=
-      ${process.env.REACT_APP_API_KEY}`
-  );
+  const FILM_LIST_URL = process.env.REACT_APP_API_URL + '/movie/top_rated?language=' + language + '&page=' + page + '&api_key=' + process.env.REACT_APP_API_KEY;
 
-  useEffect(() => {
-    fetch(FILM_URL)
+  React.useEffect(() => {
+    fetch(FILM_LIST_URL)
       .then((response) => response.json())
       .then((dataParsed) => {
-        generateNewGamePlay(dataParsed.results);
+        const currentList = dataParsed?.results;
+        const randomIndexes = generateRandomIndex(currentList);
+        let currentFilmIndex = randomIndexes[generateRandom(0, 3)];
+        let currentFilmId = currentList[currentFilmIndex]?.id;
+
+        let API_URL_DETAIL = process.env.REACT_APP_API_URL + '/movie/' + currentFilmId + '?language=' + language + '&api_key=' + process.env.REACT_APP_API_KEY;
+
+        fetch(API_URL_DETAIL)
+          .then((response) => response.json())
+          .then((dataParsed) => {
+            if (!dataParsed.title || !dataParsed.overview || !dataParsed.poster_path) {
+              currentFilmIndex = randomIndexes[generateRandom(0, 3)];
+              currentFilmId = currentList[currentFilmIndex]?.id;
+
+              API_URL_DETAIL = process.env.REACT_APP_API_URL + '/movie/' + currentFilmId + '?language=' + language + '&api_key=' + process.env.REACT_APP_API_KEY;
+
+              fetch(API_URL_DETAIL)
+                .then((response) => response.json())
+                .then((newDataParsed) => {
+                  setCurrentFilm(newDataParsed);
+                });
+            } else {
+              setCurrentFilm(dataParsed);
+            }
+          });
+        generateNewGamePlay(currentList, randomIndexes);
       });
-  }, [page]);
+  }, [page, language]);
 
-  const generateNewGamePlay = (dataParsed) => {
-    const randomIndexes = [];
-
-    while (randomIndexes.length < 4) {
-      const randomIndex = generateRandom(0, dataParsed.length);
-      if (!randomIndexes.includes(randomIndex)) {
-        randomIndexes.push(randomIndex);
-      }
-    }
-
-    const currentFilmIndex = randomIndexes[generateRandom(0, 3)];
-    setCurrentFilm(dataParsed[currentFilmIndex]);
-    const newGameOptions = randomIndexes.map((index) => dataParsed[index].title);
+  const generateNewGamePlay = (list, randomIndexes) => {
+    const newGameOptions = randomIndexes.map((index) => list[index].title);
     setOptions(newGameOptions);
     setGameIsSolved(false);
     setNameSelected(null);
   };
-  console.log(currentFilm);
+
   const selectOption = (name) => {
     if (!gameIsSolved) {
       setNameSelected(name);
     }
   };
+
   const getClassesForButton = (option) => {
     if (gameIsSolved) {
       if (option === currentFilm?.title) {
-        return "btn__option--correct";
+        return 'btn--option-correct';
       } else if (option === nameSelected) {
-        return "btn__option--wrong";
+        return 'btn--option-wrong';
       }
     } else {
       if (option === nameSelected) {
-        return "btn__option--selected";
+        return 'btn--option-selected';
       }
     }
   };
 
   return (
-    <div className="game-page">
-      <Header />
-      <div className="game-page__detail">
-        <div className="game-page__box-1">{gameIsSolved ? <img className="game-page__img" src={`https://image.tmdb.org/t/p/w200/${currentFilm?.poster_path}`} alt="" /> : <BsFillQuestionSquareFill className="game-page__film-icon" />} </div>
-        <div className="game-page__box-2">
-          <div className="game-page__text">
-            <h3 className="game-page__title">{gameIsSolved ? currentFilm?.title || currentFilm?.name : "???"}</h3>
-            <div className="game-page__main-info">
-              <span>{formatDate(currentFilm?.release_date)} | </span>
-              <span>{formatGenres(currentFilmInfo?.genres)}</span>
-              <span>| {formatTime(currentFilmInfo?.runtime)}</span>
-            </div>
-            <h3 className="game-page__detail--title">
-              <FormattedMessage id="game:title-synopsis" />
-            </h3>
-            <p>{currentFilm?.overview}</p>
-          </div>
+    <div className='game-page'>
+      <div className='game-page__detail'>
+        {!gameIsSolved && <ImFilm className='game-page__icon' />}
+        <img className={!gameIsSolved ? 'game-page__img--hide' : 'game-page__img'} src={`${process.env.REACT_APP_IMG}${currentFilm?.poster_path}`} />
+        <div className='game-page__data'>
+          <p className='game-page__title'>{gameIsSolved ? currentFilm?.title : '???'}</p>
+          <p className='game-page__subtitle'>
+            <span>{formatDateWithBarrs(currentFilm?.release_date)}</span> <span>{getProductionCountriesName(currentFilm?.production_countries)}</span> | <span>{formatGenres(currentFilm?.genres)}</span> | <span>{formatTime(currentFilm?.runtime)}</span>
+          </p>
+          <p className='game-page__sinopsis-title'>{!gameIsSolved && <FormattedMessage id='sinopsis' />}</p>
+          <p className='game-page__sinopsis'>{!gameIsSolved && currentFilm?.overview}</p>
         </div>
       </div>
-
-      <div className="game-page__options--container">
-        <h3 className="game-page__option-title">
-          <FormattedMessage id="game:title-options" />
+      <div>
+        <h3 className='game-page__options-title'>
+          <FormattedMessage id='options' />
         </h3>
-        <div className="game-page__options">
+        <div className='game-page__options'>
           {options.map((name) => (
-            <button onClick={() => selectOption(name)} key={name} className={"button-dark btn--big btn__option game-page__button " + getClassesForButton(name)}>
+            <button onClick={() => selectOption(name)} key={name} className={'btn btn--option game-page__button ' + getClassesForButton(name)}>
               {name}
             </button>
           ))}
         </div>
       </div>
-      <div className="game-page__solve">
+
+      <div className='game-page__solve'>
         <button
-          className="button-white btn--link game-page__solve-btn"
+          className='btn btn--link game-page__solve-btn'
           onClick={() => {
             setPage(generateRandom(0, 100));
           }}
         >
-          <FormattedMessage id="game:btn-restart" />
+          <FormattedMessage id='restart' />
         </button>
-        <button className="button-dark game-page__solve-btn" disabled={gameIsSolved} onClick={() => setGameIsSolved(true)}>
-          <FormattedMessage id="game:btn-solve" />
+        <button
+          className='btn game-page__solve-btn'
+          disabled={gameIsSolved}
+          onClick={() => {
+            setGameIsSolved(true);
+          }}
+        >
+          <FormattedMessage id='solve' />
         </button>
       </div>
-      <Footer />
     </div>
   );
 };

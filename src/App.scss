@@ -1,0 +1,23 @@
+.item-list{
+  display: flex;
+  flex-flow: wrap column;
+  width: 800px;
+  &__info{
+    display: flex;
+    flex-flow: wrap row;
+  }
+  &__data{
+    display: flex;
+    flex-flow: wrap row;
+    
+  }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a button Link{
+  text-decoration: none;
+}

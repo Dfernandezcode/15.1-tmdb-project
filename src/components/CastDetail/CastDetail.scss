@@ -1,0 +1,41 @@
+@import "../../styles/media-queries.scss";
+.cast-detail{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    word-wrap: break-word;
+  
+   
+    &__img{
+        width: 130px;
+        border-radius: 10px;
+    }
+    &__name{
+        font-size: 16px;
+        font-weight: bold;
+        width: 130px;
+        color: #2D2D2D;
+    }
+    &__character{
+        font-size: 14px;
+        font-weight: 200;
+        width: 130px;
+        color: #2D2D2D;
+    }
+    &__not-img{
+        width: 130px;
+        height: 195px;
+        border-radius: 10px;
+        background-color: rgb(161, 161, 161);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__not-img-text{
+        font-size: 80px;
+        font-weight: bold;
+        color: #2D2D2D;
+    }
+}

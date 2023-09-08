@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useFetch = (apiUrl) => {
   const [result, setResult] = useState(null);
+
   useEffect(() => {
     if (apiUrl) {
       fetch(apiUrl)
@@ -14,4 +15,3 @@ const useFetch = (apiUrl) => {
 };
 
 export default useFetch;
-// custom hook to handle fetch from API

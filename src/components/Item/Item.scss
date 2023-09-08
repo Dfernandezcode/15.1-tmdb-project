@@ -1,101 +1,50 @@
-@import "../../styles/variables.scss";
 @import "../../styles/media-queries.scss";
 
 .item {
+  position: relative;
+  width: 130px;
+  margin: 10px 10px;
+  text-decoration: none;
+  color: #2D2D2D;
   display: flex;
-  flex-direction: column;
-  width: 140px;
-  margin: 40px 20px 0 0;
-
-  &__link {
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  @include for-tablet-portrait-up {
+    width: 150px;
+  }
+  &__img {
+    
+    height: 195px;
+    width: 130px;
+    border-radius: 10px;
+  }
+  &__data{
     display: flex;
     flex-direction: column;
-    position: relative;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 25px 0px;
+    padding: 0 20px;
   }
-  &__poster {
-    width: 140px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    @include for-tablet-portrait-up {
-      width: 160px;
-    }
-  }
-  &__name {
+  &__title {
+
+    font-weight: 700;
     font-size: 16px;
-    margin: 0;
-    text-decoration: none;
-    color: $font-color-dark;
+    margin-bottom: 2px;
+    max-width: 100%;
   }
-
-  &__rating--fresh {
-    position: absolute;
-    top: 185px;
-    left: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    border: solid 2px $fresh;
-    outline: 2px solid $backgroud-generic;
-    color: $font-color-light;
-    margin: 0;
-    width: 36px;
-    height: 36px;
-    background-color: $backgroud-generic;
-    font-size: 12px;
-    font-weight: $bold;
-  }
-
-  &__rating--ok {
-    position: absolute;
-    top: 185px;
-    left: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    border: solid 2px $ok;
-    outline: 2px solid $backgroud-generic;
-    color: $font-color-light;
-    margin: 0;
-    width: 36px;
-    height: 36px;
-    background-color: $backgroud-generic;
-    font-size: 12px;
-    font-weight: $bold;
-  }
-
-  &__rating--rotten {
-    position: absolute;
-    top: 185px;
-    left: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    border: solid 2px $rotten;
-    outline: 2px solid $backgroud-generic;
-    color: $font-color-light;
-    margin: 0;
-    width: 36px;
-    height: 36px;
-    background-color: $backgroud-generic;
-    font-size: 12px;
-    font-weight: $bold;
-  }
-
-  &__percentage {
-    font-size: 8px;
-    font-weight: $light;
-  }
-
-  &__release {
+  &__date {
+    font-weight: 300;
     font-size: 14px;
-    margin: 0;
+    margin-top: 0px;
+    max-width: 100%;
+  }
+  &__score-wrap{
+      position: absolute;
+      top: 174px;
+      left: 15px;
   }
 }
 
-.info-text {
-  margin: 0;
-  color: $font-color-dark;
-}

@@ -1,0 +1,45 @@
+@import "../../styles/media-queries.scss";
+
+.unete{
+        height: 375px;
+        background-image: url(../../assets/unete.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+ 
+    &__data{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__title{
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        align-self: baseline;
+        margin-bottom: 10px;
+        @include for-tablet-portrait-up {
+            font-size: 36px;
+        }
+        @include for-tablet-landscape-up {
+            font-size: 48px;
+        }  
+    }
+    &__text{
+        font-size: 16px;
+        font-weight: 300;
+        color: white;
+        @include for-tablet-portrait-up {
+            font-size: 20px;
+        }
+        @include for-tablet-landscape-up {
+            font-size: 24px;
+        }
+    }
+}

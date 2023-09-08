@@ -1,0 +1,54 @@
+@import "../../styles/media-queries.scss";
+
+.avances-item {
+  padding: 10px;
+  align-items: center;
+
+  &__player {
+    border-radius: 10px;
+    background-color: #dd5757;
+    width: 280px;
+    height: 75px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    @include for-tablet-portrait-up {
+      width: 300px;
+    }
+  }
+
+  &__icon {
+    font-size: 40px;
+    margin: 10px;
+    color:  #ffff;
+  }
+  &__link-video {
+    font-weight: 300;
+    font-size: 14px;
+    color:  #ffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  &__title {
+    color:  #ffff;
+    font-weight: 700;
+    margin: 0;
+  }
+  &__text {
+    color:  #ffff;
+    font-weight: 200;
+    margin: 0;
+  }
+  &__info {
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
