@@ -18,7 +18,7 @@ const ItemDetail = () => {
   const API_URL_DETAIL = process.env.REACT_APP_API_URL + '/' + type + '/' + id + '?language=' + language + '&api_key=' + process.env.REACT_APP_API_KEY;
   const [itemData] = useFetch(API_URL_DETAIL);
 
-  const porcentVote = roundedToFixed(itemData?.vote_average) * 10;
+  const percentVote = roundedToFixed(itemData?.vote_average) * 10;
   const colorVote = generateColor(roundedToFixed(itemData?.vote_average) * 10);
 
   const API_URL_CAST = process.env.REACT_APP_API_URL + '/' + type + '/' + id + '/credits' + '?language=' + language + '&api_key=' + process.env.REACT_APP_API_KEY;
@@ -40,7 +40,7 @@ const ItemDetail = () => {
 
           <div className='item-detail__score-container'>
             <div className='item-detail__score'>
-              <Score colorVote={colorVote} porcentVote={porcentVote} />
+              <Score colorVote={colorVote} percentVote={percentVote} />
             </div>
             <p className='item-detail__score-text'>
               <FormattedMessage id='score' />

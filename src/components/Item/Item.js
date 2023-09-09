@@ -4,7 +4,7 @@ import './Item.scss';
 import Score from '../Score/Score';
 
 const Item = ({ item }) => {
-  const porcentVote = roundedToFixed(item?.vote_average) * 10;
+  const percentVote = roundedToFixed(item?.vote_average) * 10;
   const colorVote = generateColor(roundedToFixed(item?.vote_average) * 10);
   const type = item.title ? 'movie' : 'tv';
 
@@ -16,7 +16,7 @@ const Item = ({ item }) => {
         <p className='item__date'>{formatDate(item?.release_date || item?.first_air_date)}</p>
       </div>
       <div className='item__score-wrap'>
-        <Score colorVote={colorVote} porcentVote={porcentVote} />
+        <Score colorVote={colorVote} percentVote={percentVote} />
       </div>
     </Link>
   );
