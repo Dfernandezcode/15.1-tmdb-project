@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export const usePagination = (items, numItemsPerPage = 4) => {
+  // Pagination
   const [numItemsToShow, setNumItemsToShow] = useState(numItemsPerPage);
   const firstItems = items?.slice(0, numItemsToShow) || [];
   const showMore = () => {

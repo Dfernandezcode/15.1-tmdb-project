@@ -1,62 +1,35 @@
-import './ItemDetail.scss';
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import useFetch from '../../hooks/useFetch';
-import { formatTime, formatGenres, roundedToFixed, formatYear, generateColor, getProductionCountriesName, formatDateWithBarrs } from '../../utils/utils';
-import { LanguageSelector } from '../../App';
-import { FormattedMessage } from 'react-intl';
-import Cast from '../../components/Cast/Cast';
-import Crew from '../../components/Crew/Crew';
-import Recommendations from '../../components/Recommendations/Recommendations';
-import Score from '../../components/Score/Score';
+import React from "react";
+import { useParams } from "react-router-dom";
+import Header from "../../components/Header/Header.js";
+import Footer from "../../components/Footer/Footer.js";
+import useFetch from "../../hooks/useFetch.js";
+import Cast from "./Cast/Cast.js";
+import MediaInfo from "./MediaInfo/MediaInfo.js";
+import Recommend from "./Recommend/Recommend.js";
 
 const ItemDetail = () => {
-  const { id } = useParams(':id');
-  const { type } = useParams(':type');
-  const { language } = React.useContext(LanguageSelector);
-
-  const API_URL_DETAIL = process.env.REACT_APP_API_URL + '/' + type + '/' + id + '?language=' + language + '&api_key=' + process.env.REACT_APP_API_KEY;
+  // API
+  const { id } = useParams();
+  const { type } = useParams();
+  const API_URL_DETAIL = `${process.env.REACT_APP_API_URL}/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}`;
+  const API_URL_CREDITS = `${process.env.REACT_APP_API_URL}/${type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}`;
+  const API_URL_RECOMMENDATIONS = `${process.env.REACT_APP_API_URL}/${type}/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}`;
   const [itemData] = useFetch(API_URL_DETAIL);
-
-  const percentVote = roundedToFixed(itemData?.vote_average) * 10;
-  const colorVote = generateColor(roundedToFixed(itemData?.vote_average) * 10);
-
-  const API_URL_CAST = process.env.REACT_APP_API_URL + '/' + type + '/' + id + '/credits' + '?language=' + language + '&api_key=' + process.env.REACT_APP_API_KEY;
-  const [personsData] = useFetch(API_URL_CAST);
+  const [creditData] = useFetch(API_URL_CREDITS);
+  const [recommendData] = useFetch(API_URL_RECOMMENDATIONS);
+  console.log(API_URL_RECOMMENDATIONS);
 
   return (
-    <div className='item-detail'>
-      <div className='item-detail__header'>
-        <img className='item-detail__img' src={`${process.env.REACT_APP_IMG}${itemData?.poster_path}`} />
-        <div className='item-detail__info'>
-          <h3 className='item-detail__title'>
-            {itemData?.title || itemData?.name}
-            <span> {formatYear(itemData?.release_date || itemData?.first_air_date)}</span>
-          </h3>
-          <p className='item-detail__data'>
-            <span>{formatDateWithBarrs(itemData?.release_date || itemData?.first_air_date)}</span>
-            <span>{getProductionCountriesName(itemData?.production_countries)}</span> | {formatGenres(itemData?.genres)} | <span>{formatTime(itemData?.runtime || itemData?.episode_run_time)}</span>
-          </p>
-
-          <div className='item-detail__score-container'>
-            <div className='item-detail__score'>
-              <Score colorVote={colorVote} percentVote={percentVote} />
-            </div>
-            <p className='item-detail__score-text'>
-              <FormattedMessage id='score' />
-            </p>
-          </div>
-          <p className='item-detail__subtitle'>{itemData?.tagline}</p>
-          <p className='item-detail__overview-title'>
-            <FormattedMessage id='general-view' />
-          </p>
-          <p className='item-detail__overview'>{itemData?.overview}</p>
-          <Crew personsData={personsData} />
-        </div>
+    <div>
+      <Header />
+      <div className="detail-container">
+        <MediaInfo itemData={itemData} />
+        <Cast castData={creditData} />
+        <Recommend recommendData={recommendData} />
       </div>
-      <Cast personsData={personsData} />
-      <Recommendations />
+      <Footer />
     </div>
   );
 };
+
 export default ItemDetail;

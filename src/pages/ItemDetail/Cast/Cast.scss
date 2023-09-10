@@ -1,0 +1,59 @@
+@import "../../../styles/variables.scss";
+
+.cast-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cast-info {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  color: $font-color-dark;
+
+  &__title {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    justify-self: start;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    grid-gap: 20px;
+
+    &-element {
+      display: flex;
+      flex-direction: column;
+      width: 140px;
+
+      &-img {
+        width: 140px;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+
+      &-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 10px 0 0 0;
+      }
+      &-character {
+        font-size: 14px;
+        font-weight: 300;
+        margin: 0;
+      }
+
+      /* set grid-column to separate elements into two columns */
+      &:nth-child(odd) {
+        grid-column: 1;
+      }
+
+      &:nth-child(even) {
+        grid-column: 2;
+      }
+    }
+  }
+}

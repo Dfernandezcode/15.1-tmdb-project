@@ -1,5 +1,5 @@
 {
-  "name": "bootcam-peliculas",
+  "name": "15.1-movies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --watchAll=false --passWithNoTests",
     "test:watch": "react-scripts test",
     "lint:coverage": "react-scripts test --watchAll=false --coverage",
     "lint": "eslint src",
@@ -45,7 +45,7 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",

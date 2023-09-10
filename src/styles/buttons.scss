@@ -1,52 +1,22 @@
-@import "./media-queries.scss";
-.btn {
-  background-color: #052641;
-  color: #ffff;
-  font-size: 14px;
-  font-weight: 300;
-  padding: 10px 20px;
+@import "./variables.scss";
+
+.button-dark {
+  color: $font-color-light;
+  border: none;
   border-radius: 50px;
-  line-height: 1;
+  background-color: $backgroud-generic;
+}
 
-  &:disabled,
-  &[disabled] {
-    opacity: 0.3;
-  }
+.button-white {
+  color: $font-color-generic;
+  border: none;
+  background-color: $background-light;
+  border-radius: 50px;
+}
 
-  &--link {
-    background-color: transparent;
-    text-decoration: underline;
-    color: #052641;
-  }
-
-  &--option {
-    color: #052641;
-    background-color: #ffff;
-    width: 250px;
-  }
-
-  &--option-selected {
-    color: #ffff;
-    font-weight: 600;
-    background-color: #EC9F57;
-    border: none;
-  }
-
-  &--option-correct {
-    background-color: #78C84F;
-    color: #ffff;
-    font-weight: 600;
-    border: none;
-  }
-
-  &--option-wrong {
-    background-color: #C03028;
-    color: #ffff;
-    font-weight: 600;
-    border: none;
-  }
-
-  &--light {
-    background-color: #C5C2C2;
-  }
+.button-light {
+  color: $font-color-generic;
+  border: solid 1px $border-generic;
+  border-radius: 50px;
+  background-color: $background-light;
 }

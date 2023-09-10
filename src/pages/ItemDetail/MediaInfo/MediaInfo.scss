@@ -1,0 +1,89 @@
+@import "../../../../src/styles/variables.scss";
+
+/*MOVIE|TV-DETAILS STYLES*/
+.media-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $backgroud-generic;
+  color: $font-color-light;
+  padding: 0 25px 50px 25px;
+
+  &__poster {
+    height: 375px;
+    border-radius: 10px;
+  }
+  /*title & details*/
+  &__text-wrap {
+    &-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0 0 0;
+    }
+
+    &-year {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    &-detail {
+      font-size: 12px;
+      font-weight: 100;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0;
+    }
+
+    &-space {
+      margin: 0 20px;
+    }
+
+    &-genre {
+      display: flex;
+      gap: 0 5px;
+    }
+  }
+
+  /*Rating*/
+
+  /*Tagline*/
+  &__tagline {
+    font-size: 12px;
+    font-weight: 100;
+  }
+  /*Overview title & text*/
+  &__overview-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  &__overview-text {
+    font-size: 12px;
+    font-weight: 100;
+    margin: 5px 0 15px 0;
+  }
+
+  /*CREW-LIST STYLES*/
+  &__crew {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+
+    &-list {
+      margin: 10px 0;
+      &-name {
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      &-job {
+        font-size: 12px;
+        font-weight: 100;
+        margin: 0;
+      }
+    }
+  }
+}

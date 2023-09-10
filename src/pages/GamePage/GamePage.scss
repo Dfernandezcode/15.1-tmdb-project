@@ -1,78 +1,105 @@
 @import "../../styles/media-queries.scss";
 
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+
 .game-page {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+
   &__content {
     max-width: 1250px;
     margin: 0 auto;
     padding-top: 0;
-    margin-top: -135px;
     position: relative;
     z-index: 10;
   }
+
   &__detail {
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     background-color: #052641;
     color: #fff;
-    width: 100%;
-    position: relative;
-    top: -3px;
+    width: 100vw;
+
     @include for-tablet-portrait-up {
       flex-flow: row nowrap;
       padding: 30px 0;
     }
   }
-  &__data{
+
+  &__data {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
-    margin: 20px auto;
     padding: 30px;
+
+
     @include for-tablet-portrait-up {
       width: 50%;
     }
   }
-  &__title{
+
+  &__title {
     font-size: 20px;
     font-weight: bold;
+
     @include for-tablet-portrait-up {
       font-size: 28px;
     }
   }
-  &__subtitle{
+
+  &__subtitle {
     font-size: 12px;
     font-weight: 200;
+
     @include for-tablet-portrait-up {
       font-size: 14px;
     }
   }
-  &__sinopsis-title{
+
+  &__sinopsis-title {
     margin: 20px 0 10px 0;
     font-size: 16px;
     font-weight: bold;
+
     @include for-tablet-portrait-up {
       font-size: 18px;
     }
   }
-  &__sinopsis{
+
+  &__sinopsis {
     font-size: 12px;
     font-weight: 200;
+
     @include for-tablet-portrait-up {
       font-size: 14px;
     }
   }
+
   &__options {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+
     @include for-tablet-portrait-up {
       width: 560px;
       flex-flow: row wrap;
@@ -81,44 +108,98 @@
       justify-content: space-between;
     }
   }
-  &__options-title{
+
+  &__options-title {
+    text-align: center;
+    border-bottom: solid 1px #031a2c;
+    padding: 10px;
     font-size: 24px;
     font-weight: bold;
-    margin: 30px auto;
+    margin: 20px auto 50px auto;
     color: #2D2D2D;
+
     @include for-tablet-portrait-up {
       font-size: 28px;
     }
   }
+
   &__button {
     margin-bottom: 20px;
-    text-transform: capitalize;
+    border: none;
+    width: 250px;
+    height: 50px;
+    padding: 0 25px;
+    border-radius: 25px;
+    background-color: #052641;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: #052641;
+      border: 1px solid #052641;
+      transition: all 0.3s ease-in-out;
+    }
   }
+
   &__solve {
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
+    border: none;
   }
+
   &__solve-btn {
-    margin: 0 10px;
-  }
-  &__img{
-    width: 265px;
-    margin: 20px auto;
-    border-radius: 10px;
-    &--hide{
-      filter: brightness(0%) opacity(40%);
-      width: 265px;
-      border-radius: 10px;
+    margin: 0 20px;
+    background-color: #052641;
+    border: none;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    width: 200px;
+    height: 40px;
+    border-radius: 25px;
+
+    &:hover {
+      background-color: #fff;
+      color: #052641;
+      border: 1px solid #031a2c;
+      transition: all 0.3s ease-in-out;
     }
   }
-  &__icon{
+
+  &__icon-wrapper {
     position: relative;
-    top: 258px;
-    left: 1px;
-    font-size: 100px; @include for-tablet-portrait-up {
-      top: -8px;
-      left: 180px;
+    display: inline-block;
+    margin-right: 50px;
+    background-image: url("../../assets/mystery-box.png");
+    background-position: center;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    animation: bounce 2s infinite;
+    transition: background-size 1s ease-in-out;
+  }
+
+  &__img {
+    &--hide {
+      filter: brightness(0%) opacity(0%);
+      width: 225px;
+      border-radius: 10px;
+  
     }
   }
+}
+
+.btn--option-correct {
+  background-color: #00FF00;
+  color: #052641;
+  font-weight: 600;
+  border: 1px solid #00FF00;
+}
+
+.btn--option-wrong {
+  background-color: #FF0000;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid #FF0000;
 }

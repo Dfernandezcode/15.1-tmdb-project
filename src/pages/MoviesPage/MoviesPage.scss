@@ -1,0 +1,84 @@
+@import "../../styles/variables.scss";
+@import "../../styles/media-queries.scss";
+
+.movie-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  &__welcome-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 400px;
+    background-image: url("../../assets/welcome.png");
+    background-color: #052641;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;  
+
+    @include for-tablet-portrait-up {
+      background-position: center;
+    }
+  }
+
+  .welcome-banner {
+    text-align: left;
+    color: $font-color-light;
+
+    &__title {
+      font-size: 36px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    &__text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .subscribe-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("../../assets/Subscribe-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $font-color-light;
+    width: 100vw;
+    height: 500px;
+    
+    &__title {
+      width: 270px;
+      text-align: left;
+      font-size: 32px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    &__text {
+      font-size: 16px;
+      font-weight: light;
+      width: 300px;
+      text-align: left;
+    }
+  }
+
+  .show-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 120px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: light;
+    background-color: $backgroud-generic;
+    color: $font-color-light;
+  }
+}
